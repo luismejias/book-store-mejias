@@ -10,7 +10,7 @@ export const CustomNavbar = ()=>  {
     <Navbar expand="xxl" variant="dark">
       <Container>
         <Navbar.Brand href="#home" className='Item'>
-        <img src={logo}/>
+        <img src={logo} height={40} width={40}/>
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
