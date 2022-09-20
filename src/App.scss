@@ -1,8 +1,14 @@
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
+  width: 100%;
 }
 .App-header {
   background-color: #282c34;
-  display: flex; 
+  display: flex;
+  justify-content: space-between;
   color: white;
+  padding: 8px;
+  align-items: center;
 }
