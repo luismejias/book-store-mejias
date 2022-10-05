@@ -1,21 +1,17 @@
-/* eslint-disable jsx-a11y/alt-text */
 import './CustomNavbar.scss';
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/bookshop.png';
-export const CustomNavbar = ()=>  {
+import { Link } from 'react-router-dom';
+import { CartWidget } from '../CartWidget/CartWidget';
+export const CustomNavbar = () => {
   return (
-    <Navbar>
-      <Container>        
-        <img src={logo} height={40} width={40} href="#home" className='Item'/>        
-          <Nav className="me-auto">
-            <Nav.Link href="#home" className='Item'>Home</Nav.Link>
-            <Nav.Link href="#about" className='Item'>About</Nav.Link>
-            <Nav.Link href="#faq" className='Item'>Faq</Nav.Link>
-            <Nav.Link href="#products" className='Item'>Products</Nav.Link>
-          </Nav>
-      </Container>
-    </Navbar>
+    <>
+      <div>
+        <Link to={'/'} className='Item' ><img src={logo} height={40} width={40} href="#home" className='Item' alt='logo' /></Link>
+        <Link to={'/'} className='Item' >Home</Link>
+        <Link to={'/faq'} className='Item' >Faq</Link>
+        <Link to={'/about'} className='Item' >About</Link>
+      </div>
+      <CartWidget />
+    </>
   );
 }

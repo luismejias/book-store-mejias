@@ -7,4 +7,9 @@
 .Item {
   cursor: pointer;
   color: white;
+  &:hover {
+    color: #EB984E;
+  }
+  text-decoration: none;
+  margin: 0px 10px;
 }
