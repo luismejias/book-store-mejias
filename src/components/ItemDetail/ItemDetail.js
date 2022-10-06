@@ -6,16 +6,20 @@ import { Loader } from '../Loader/Loader';
 import './ItemDetail.scss';
 export const ItemDetail = () => {
   const [detail, setDetail] = useState({ image: '../../assets/photo-books/incognito.jpg' });
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
   useEffect(() => {
     getDataBooksDetail(id).then((res) => {
-      setDetail(res);
+      if (res) {
+        setLoading(false);
+        setDetail(res);
+      }
     });
   }, [id])
 
   return (
     <div>
-      {!detail ? (
+      {(loading) ? (
         <div className="itemDetail">
           < div className="itemDetail__loader-content">
             <Loader />

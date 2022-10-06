@@ -16,4 +16,10 @@
   &__summary {
     text-align: justify;
   }
+
+  &__loader-content {
+    display: flex;
+    justify-content: center;
+    width: 100vw;
+  }
 }

@@ -3,10 +3,11 @@ import { Loader } from '../Loader/Loader';
 import './ItemListContainer.scss';
 
 export const ItemListContainer = (props) => {
-  const { greeting, bookList } = props;
+  const { greeting, bookList, loading } = props;
+ 
   return (
     <div>
-      {!bookList ? (
+      {loading ? (
         <div className="itemListContainer">
           < div className="itemListContainer__loader-content">
             <Loader />

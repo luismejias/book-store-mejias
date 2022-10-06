@@ -92,6 +92,7 @@ export const  getDataBooks = () => {
 }
 export const  getDataBooksDetail = (id) => {
   return new Promise((resolve, reject) => {
+    setTimeout(() => {
       if (bookList.length > 0) {
         const bookFilter = 
           bookList.find((book)=>{
@@ -102,5 +103,6 @@ export const  getDataBooksDetail = (id) => {
       } else {
         reject('ocurrio un error');
       }
+    }, 1000);
   });
 }
