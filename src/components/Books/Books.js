@@ -12,8 +12,7 @@ export const Books = () => {
       if(res.length > 0){        
         setLoading(false);
         setBooks(res);
-      }
-      
+      }      
     }).catch(error => {
       console.log(error)
     })
