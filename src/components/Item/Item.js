@@ -2,35 +2,30 @@ import './Item.scss';
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
-import { useContext } from 'react';
-import { CartContext } from '../../contexts';
+import { useCartContext } from '../../contexts/CartContext';
+import { Count } from '../../components';
 
 
-export const Item = ({ title, author, year, code, image }) => {
-const {addBooks, books} = useContext(CartContext);
-  const addBook = ()=>{
-    const findBook = books.find(item => item.code === code);
-    if(!findBook){
-      addBooks({ title, author, year, code, image });
-    }
-    console.log('Books => ', books);
+export const Item = ({ id, title, author, image, price, initial, stock }) => {
+  const { addBook } = useCartContext();
+  const onAddBook = (quantity) => {
+    addBook({ title, author, id, image, price }, quantity);
   }
 
   return (
-    <Card style={{ width: '18rem' }} className="item">
+    <Card className="item">
       <img src={image} alt='' width={286} height={180} />
       <Card.Body>
         <Card.Title>{title}</Card.Title>
         <Card.Text>
           {author}
         </Card.Text>
-        <Card.Text>
-          {year}
-        </Card.Text>        
-         <div>
-          <Link to={`/books/${code}`}> <Button variant="primary">Ver detalles</Button>
-          </Link><Button variant="secondary" onClick={addBook}>Añadir al carrito</Button>
-          </div>
+        <Count onAddBook={onAddBook} initial={initial} stock={stock} />
+        <div className="item__button-box">
+          <Link to={`/books/${id}`} className="item__space">
+            <Button variant="primary" className="item__big-button" style={{ width: '100%' }}>Ver detalles</Button>
+          </Link>
+        </div>
       </Card.Body>
     </Card>
   );

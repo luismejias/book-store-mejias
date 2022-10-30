@@ -11,4 +11,7 @@
   color: white;
   padding: 8px;
   align-items: center;
+  position: sticky;
+    top: 0px;
+    z-index: 999;
 }

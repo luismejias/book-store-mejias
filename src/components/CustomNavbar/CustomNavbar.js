@@ -1,15 +1,16 @@
 import './CustomNavbar.scss';
 import logo from '../../assets/bookshop.png';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { CartWidget } from '../CartWidget/CartWidget';
 export const CustomNavbar = () => {
+  
   return (
     <>
       <div>
-        <Link to={'/'} className='Item' ><img src={logo} height={40} width={40} href="#home" className='Item' alt='logo' /></Link>
-        <Link to={'/'} className='Item' >Home</Link>
-        <Link to={'/faq'} className='Item' >Faq</Link>
-        <Link to={'/about'} className='Item' >About</Link>
+        <NavLink to={'/books'} className='Item' ><img src={logo} height={40} width={40} href="#home" alt='logo' /></NavLink>
+        <NavLink to={'/books'} className='Item' >Inicio</NavLink>
+        <NavLink to={'/faq'} className='Item' >Preguntas frecuentes</NavLink>
+        <NavLink to={'/about'} className='Item' >Nosotros</NavLink>
       </div>
       <CartWidget />
     </>

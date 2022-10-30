@@ -1,6 +1,24 @@
 .cartWitget {
   display: flex;
+  align-items: center;
+  cursor: pointer;
+  
   &__icon {
-    cursor: pointer;
+    color: white !important;;
+    text-decoration: none;
+
+  }
+
+  &__count {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    height: 25px;
+    width: 25px;
+    background-color: #EB984E;
+    color: #fff;
+    font-weight: bold;
+    margin-left: 5px;
   }
 }

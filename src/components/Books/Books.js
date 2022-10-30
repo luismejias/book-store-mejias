@@ -1,25 +1,29 @@
 import { useEffect, useState } from "react";
-import { getDataBooks } from "../../data.mock";
 import { ItemListContainer } from "../ItemListContainer/ItemListContainer";
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
 
 export const Books = () => {
   const [books, setBooks] = useState([]);
   const [loading, setLoading] = useState(true);
 
+
   useEffect(() => {
-    getDataBooks().then((res) => {
-      setLoading(true);
-      if(res.length > 0){        
+    const dataBase = getFirestore();
+    const itemsCollection = collection(dataBase, 'books');
+    getDocs(itemsCollection).then((snapshot) => {
+      const bookList = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      if (bookList.length > 0) {
         setLoading(false);
-        setBooks(res);
-      }      
-    }).catch(error => {
-      console.log(error)
-    })
-  }, [books]);
+        setBooks(bookList);
+      }
+    });
+  }, []);
   return (
     <div>
-      <ItemListContainer bookList = { books } loading={loading} greeting = "Listado de obras literarias"/>
+      <ItemListContainer bookList={books} loading={loading} greeting="Listado de obras literarias" />
     </div>
   )
 }

@@ -3,7 +3,23 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import {App} from './App';
 import reportWebVitals from './reportWebVitals';
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "firebase/app";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+const firebaseConfig = {
+  apiKey: "AIzaSyA8HKnNdNPcA7Dcs1op9VW_wqKQ-pcwhKY",
+  authDomain: "bookstore-659c6.firebaseapp.com",
+  projectId: "bookstore-659c6",
+  storageBucket: "bookstore-659c6.appspot.com",
+  messagingSenderId: "750985901960",
+  appId: "1:750985901960:web:61ce654d71bc6d7f2eac3d"
+};
+
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>

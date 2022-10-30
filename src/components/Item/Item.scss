@@ -1,3 +1,14 @@
 .item {
  margin: 10px;
+ width: 18rem;
+ &__button-box {
+  display: flex;
+  flex-direction: column;
+  &__big-button {
+    width: 100%;
+  }
+ }
+ &__space {
+  margin-bottom:8px;
+ }
 }

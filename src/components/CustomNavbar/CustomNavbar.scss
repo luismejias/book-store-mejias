@@ -7,9 +7,17 @@
 .Item {
   cursor: pointer;
   color: white;
+  font-size: 14px;
   &:hover {
+    font-weight: bold;
     color: #EB984E;
   }
   text-decoration: none;
   margin: 0px 10px;
+}
+
+.active {
+  font-weight: bold;
+  color: #EB984E;
+  text-decoration: none;  
 }

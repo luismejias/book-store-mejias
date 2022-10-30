@@ -1,7 +1,7 @@
+import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { useEffect, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Link, useParams } from 'react-router-dom';
-import { getDataBooksDetail } from '../../data.mock';
 import { Loader } from '../Loader/Loader';
 import './ItemDetail.scss';
 export const ItemDetail = () => {
@@ -9,13 +9,13 @@ export const ItemDetail = () => {
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   useEffect(() => {
-    getDataBooksDetail(id).then((res) => {
-      if (res) {
-        setLoading(false);
-        setDetail(res);
-      }
+    const db = getFirestore();
+    const itemRef = doc(db, 'books', id);
+    getDoc(itemRef).then((snapshot) => {
+      setDetail({ id: snapshot.id, ...snapshot.data() })
+      setLoading(false);
     });
-  }, [id])
+  }, [id]);
 
   return (
     <div>
